@@ -52,7 +52,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="buku-tamu.php">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Buku Tamu</span></a>
             </li>
