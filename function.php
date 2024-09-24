@@ -20,7 +20,7 @@ function tambah_tamu($data)
 
     $kode           = htmlspecialchars($data["id_tamu"]);
     $tanggal        = date("Y-m-d");
-    $nama_tamu           = htmlspecialchars($data["id_tamu"]);
+    $nama_tamu           = htmlspecialchars($data["nama_tamu"]);
     $alamat           = htmlspecialchars($data["alamat"]);
     $no_hp           = htmlspecialchars($data["no_hp"]);
     $bertemu           = htmlspecialchars($data["bertemu"]);
@@ -52,6 +52,17 @@ function ubah_tamu($data)
         kepentingan     = '$kepentingan'
         WHERE id_tamu   = '$id';
     ";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+// function hapus data tamu
+function hapus_tamu($id) {
+    global $koneksi;
+
+    $query = "DELETE FROM tabel_buku_tamu WHERE id_tamu = '$id'";
 
     mysqli_query($koneksi, $query);
 

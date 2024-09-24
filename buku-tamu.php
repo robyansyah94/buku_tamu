@@ -13,23 +13,23 @@ include_once('templates/header.php');
   <h1 class="h3 mb-4 text-gray-800">Buku Tamu</h1>
 
   <?php
-    //jika ada tombol simpan 
-    if (isset($_POST['simpan'])) {
-        if (tambah_tamu($_POST) > 0) {
-    ?>
-            <div class="alert alert-success" role="alert">
-                Data berhasil disimpan!
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="alert alert-danger" role="alert">
-                Data gagal disimpan!
-            </div>
+  //jika ada tombol simpan 
+  if (isset($_POST['simpan'])) {
+    if (tambah_tamu($_POST) > 0) {
+  ?>
+      <div class="alert alert-success" role="alert">
+        Data berhasil disimpan!
+      </div>
     <?php
-        }
-    }
+    } else {
     ?>
+      <div class="alert alert-danger" role="alert">
+        Data gagal disimpan!
+      </div>
+  <?php
+    }
+  }
+  ?>
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -73,8 +73,9 @@ include_once('templates/header.php');
                 <td><?= $tamu['no_hp'] ?></td>
                 <td><?= $tamu['bertemu'] ?></td>
                 <td><?= $tamu['kepentingan'] ?></td>
-                <td><button class=" btn btn-success" type="button"><a class="text-white" href="edit-tamu.php?id=<?= $tamu['id_tamu'] ?>">Ubah</a></button>
-                  <button class="btn btn-danger" type="button">Hapus</button>
+                <td>
+                  <a class=" btn btn-success" href="edit-tamu.php?id=<?= $tamu['id_tamu'] ?>">Ubah</a>
+                  <a onclick="confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger" href="hapus-tamu.php?id=<?= $tamu['id_tamu']?>">Hapus</a>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -84,26 +85,26 @@ include_once('templates/header.php');
     </div>
   </div>
 
-<?php
-//mengambil data barang dari tabel dengan kode terbesar
-$query = mysqli_query($koneksi, "SELECT max(id_tamu) as kodeTerbesar FROM tabel_buku_tamu");
-$data = mysqli_fetch_assoc($query);
-$kodeTamu = $data['kodeTerbesar'];
+  <?php
+  //mengambil data barang dari tabel dengan kode terbesar
+  $query = mysqli_query($koneksi, "SELECT max(id_tamu) as kodeTerbesar FROM tabel_buku_tamu");
+  $data = mysqli_fetch_assoc($query);
+  $kodeTamu = $data['kodeTerbesar'];
 
-//mengambil angka dari kode barang terbesar, menggunakan fungsi substr dan di ubah ke integer dengan (int)
-$urutan = (int) substr($kodeTamu, 2,3);
+  //mengambil angka dari kode barang terbesar, menggunakan fungsi substr dan di ubah ke integer dengan (int)
+  $urutan = (int) substr($kodeTamu, 2, 3);
 
-//nomor yang di ambil akan ditambahkan 1 untuk menentukan nomor urut berikutnya
-$urutan++;
+  //nomor yang di ambil akan ditambahkan 1 untuk menentukan nomor urut berikutnya
+  $urutan++;
 
-//membuat kode barang baru
-//string sprintf("%03s" $urutan); berfungsi untuk membuat string menjadi 3 karakter
+  //membuat kode barang baru
+  //string sprintf("%03s" $urutan); berfungsi untuk membuat string menjadi 3 karakter
 
-//angka yang diambil tadi digunakan dengan kode huruf yang kita inginkan, misalnya zt
-$huruf = "zt";
-$kodeTamu = $huruf . sprintf("%03s", $urutan)
+  //angka yang diambil tadi digunakan dengan kode huruf yang kita inginkan, misalnya zt
+  $huruf = "zt";
+  $kodeTamu = $huruf . sprintf("%03s", $urutan)
 
-?>
+  ?>
 
   <!-- Modal -->
   <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
