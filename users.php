@@ -66,7 +66,7 @@ include_once('templates/header.php');
                 <td><?= $user['username'] ?></td>
                 <td><?= $user['user_role'] ?></td>
                 <td>
-                  <a class=" btn btn-success" href="edit-tamu.php?id=<?= $user['id_user'] ?>">Ubah</a>
+                  <a class=" btn btn-success" href="edit-user.php?id=<?= $user['id_user'] ?>">Ubah</a>
                   <a onclick="confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger" href="hapus-user.php?id=<?= $user['id_user']?>">Hapus</a>
                 </td>
               </tr>
@@ -81,10 +81,10 @@ include_once('templates/header.php');
   //mengambil data barang dari tabel dengan kode terbesar
   $query = mysqli_query($koneksi, "SELECT max(id_user) as kodeTerbesar FROM users");
   $data = mysqli_fetch_assoc($query);
-  $kodeTamu = $data['kodeTerbesar'];
+  $kodeUser = $data['kodeTerbesar'];
 
   //mengambil angka dari kode barang terbesar, menggunakan fungsi substr dan di ubah ke integer dengan (int)
-  $urutan = (int) substr($kodeuser, 3, 2);
+  $urutan = (int) substr($kodeUser, 3, 2);
 
   //nomor yang di ambil akan ditambahkan 1 untuk menentukan nomor urut berikutnya
   $urutan++;
@@ -94,8 +94,9 @@ include_once('templates/header.php');
 
   //angka yang diambil tadi digunakan dengan kode huruf yang kita inginkan, misalnya zt
   $huruf = "usr";
-  $kodeTamu = $huruf . sprintf("%02s", $urutan)
+  $kodeUser = $huruf . sprintf("%02s", $urutan)
 
+  
   ?>
 
   <!-- Modal -->
@@ -136,7 +137,7 @@ include_once('templates/header.php');
               </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer row">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
               <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
             </div>
