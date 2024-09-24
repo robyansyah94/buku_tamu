@@ -66,6 +66,7 @@ if (isset($_GET['id'])) {
                             <option value="operator" <?= $data['user_role'] == 'operator' ? 'selected' : ''; ?>>Operator</option>
                         </select>
                     </div>
+                </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label"></label>
                         <div class="col-sm-8 d-flex justify-content-end">
@@ -86,9 +87,6 @@ if (isset($_GET['id'])) {
 
 </div>
 
-</div>
-
-</div>
 <!-- /.container-fluid -->
 
 <?php
