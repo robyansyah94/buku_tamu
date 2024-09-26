@@ -33,8 +33,21 @@ if (isset($_GET['id'])) {
             </div>
     <?php
         }
+    } else if (isset($_POST['ganti_password'])) {
+        if (ganti_password($_POST) > 0) {
+    ?>
+            <div class="alert alert-success" role="alert">
+                password berhasil diubah!
+            </div>
+        <?php
+        } else {
+        ?>
+            <div class="alert alert-danger" role="alert">
+                password gagal diubah!
+            </div>
+    <?php
+        }
     }
-
     ?>
 
 
@@ -48,12 +61,6 @@ if (isset($_GET['id'])) {
                 <input type="hidden" name="id_user" id="id_user" value="<?= $id_user ?>">
                 <div class="form-group row">
                     <label for="nama_user" class="col-sm-3 col-form-label">Username</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="username" name="username" value="<?= $data['username'] ?>">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="user_role" class="col-sm-3 col-form-label">Username</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="username" name="username" value="<?= $data['username'] ?>">
                     </div>
