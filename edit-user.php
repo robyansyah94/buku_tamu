@@ -33,20 +33,6 @@ if (isset($_GET['id'])) {
             </div>
     <?php
         }
-    } else if (isset($_POST['ganti_password'])) {
-        if (ganti_password($_POST) > 0) {
-    ?>
-            <div class="alert alert-success" role="alert">
-                password berhasil diubah!
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="alert alert-danger" role="alert">
-                password gagal diubah!
-            </div>
-    <?php
-        }
     }
     ?>
 

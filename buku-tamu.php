@@ -26,9 +26,9 @@ include_once('templates/header.php');
       <div class="alert alert-danger" role="alert">
         Data gagal disimpan!
       </div>
-  <?php
+    <?php
     }
-  }
+  } 
   ?>
 
   <div class="card shadow mb-4">
@@ -75,7 +75,7 @@ include_once('templates/header.php');
                 <td><?= $tamu['kepentingan'] ?></td>
                 <td>
                   <a class=" btn btn-success" href="edit-tamu.php?id=<?= $tamu['id_tamu'] ?>">Ubah</a>
-                  <a onclick="confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger" href="hapus-tamu.php?id=<?= $tamu['id_tamu']?>">Hapus</a>
+                  <a onclick="confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger" href="hapus-tamu.php?id=<?= $tamu['id_tamu'] ?>">Hapus</a>
                 </td>
               </tr>
             <?php endforeach; ?>

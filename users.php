@@ -186,7 +186,7 @@ include_once('templates/header.php');
             </div>
             <div class="modal-footer row">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-              <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+              <button type="submit" name="ganti_password" class="btn btn-primary">Simpan</button>
             </div>
           </form>
         </div>
