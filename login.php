@@ -1,7 +1,7 @@
 <?php
 require 'koneksi.php';
-// //memulai sessionn
-// session_start();
+//memulai sessionn
+session_start();
 
 
 if(isset($_POST['login'])) {
@@ -18,8 +18,9 @@ if(isset($_POST['login'])) {
 
         if(password_verify($password, $row['password'])) {
              
-            // $_SESSION['login'] = true;
-            // $_SESSION['username'] = $username;
+            //set session
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $username;
             //login berhasil
             header(("Location: index.php"));
             exit;
