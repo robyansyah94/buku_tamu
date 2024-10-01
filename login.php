@@ -21,6 +21,7 @@ if(isset($_POST['login'])) {
             //set session
             $_SESSION['login'] = true;
             $_SESSION['username'] = $username;
+            $_SESSION['role'] = $row['user_role'];
             //login berhasil
             header(("Location: index.php"));
             exit;
@@ -77,7 +78,7 @@ if(isset($_POST['login'])) {
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                            <img src="assets/images/login-.png" alt="">
+                            <img src="assets/img/undraw_rocket.svg" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">

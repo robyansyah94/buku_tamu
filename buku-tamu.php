@@ -6,6 +6,15 @@ require_once('function.php');
 include_once('templates/header.php');
 ?>
 
+<?php
+if (isset($_SESSION ['role']) && $_SESSION ['role'] != 'operator' ){
+            //jika data berhasil di hapus maka akan muncul alert
+            echo "<script>alert('Anda Tidak Memiliki Akses')</script>";
+            //redirect ke halaman buku-tamu.php
+            echo "<script>window.location.href='index.php'</script>";
+        }
+?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 

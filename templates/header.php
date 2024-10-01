@@ -60,12 +60,14 @@ if(!isset($_SESSION['login'])) {
             </li>
 
             <!-- Nav Item - Charts -->
+            <?php if (isset($_SESSION ['role']) && $_SESSION ['role'] != 'admin' ) :?>
             <li class="nav-item">
                 <a class="nav-link" href="buku-tamu.php">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Buku Tamu</span></a>
             </li>
-            
+            <?php endif ; ?>
+
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="laporan.php">
@@ -74,11 +76,13 @@ if(!isset($_SESSION['login'])) {
             </li>
 
             <!-- Nav Item - Charts -->
+            <?php if (isset($_SESSION ['role']) && $_SESSION ['role'] != 'operator' ) :?>
             <li class="nav-item">
                 <a class="nav-link" href="users.php">
                     <i class="fas fa-fw fa-user"></i>
                     <span>User</span></a>
             </li>
+            <?php endif ; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -87,7 +91,7 @@ if(!isset($_SESSION['login'])) {
             //cek apabila ada user login maka tampilan logout
             if(isset($_SESSION['login'])) :
             ?>
-            <li class="nav-link">
+            <li class="nav-item">
                 <a class="nav-link" href="logout.php">
                 <i class="fas fa-fw fa-power-off"></i>
                 <span>Logout</span></a>
@@ -137,9 +141,9 @@ if(!isset($_SESSION['login'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 xl large"><?= isset($_SESSION['login']) && $_SESSION['login'] == true ? $_SESSION['username'] : '' ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
