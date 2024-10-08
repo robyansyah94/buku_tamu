@@ -1,0 +1,17 @@
+{
+    "name": "robi/buku-tamu",
+    "autoload": {
+        "psr-4": {
+            "Robi\\BukuTamu\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "robyansyah94",
+            "email": "obys094@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^3.3"
+    }
+}
